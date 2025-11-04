@@ -139,7 +139,9 @@ def index():
         )
     return render_template("index.html")
 
-
+@app.route("/download")
+def download_file():
+    return send_from_directory(app.config["UPLOAD_FOLDER"], "output.mp4", as_attachment=True)
 
 if __name__ == "__main__":
     app.run(debug=True)
